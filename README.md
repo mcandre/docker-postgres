@@ -69,19 +69,13 @@ $ docker build -t mcandre/docker-postgres .
 $ CONTAINER=$(docker run -d -p 5432:5432 mcandre/docker-postgres)
 ```
 
-## Publish
-
-```
-$ docker push mcandre/docker-postgres
-```
-
-## Linux
+### Linux
 
 ```
 $ docker exec $CONTAINER psql -U postgres -c "SELECT 'Hello World!';"
 ```
 
-## non-Linux
+### non-Linux
 
 ```
 $ docker exec $CONTAINER psql -h $(boot2docker ip) -U postgres -c "SELECT 'Hello World!';"
@@ -92,6 +86,12 @@ $ docker exec $CONTAINER psql -h $(boot2docker ip) -U postgres -c "SELECT 'Hello
 --------------
  Hello World!
 (1 row)
+```
+
+## Publish
+
+```
+$ docker push mcandre/docker-postgres
 ```
 
 ## Cleanup
