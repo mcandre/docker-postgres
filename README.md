@@ -69,6 +69,12 @@ $ docker build -t mcandre/docker-postgres .
 $ CONTAINER=$(docker run -d -p 5432:5432 mcandre/docker-postgres)
 ```
 
+## Publish
+
+```
+$ docker push mcandre/docker-postgres
+```
+
 ## Linux
 
 ```
