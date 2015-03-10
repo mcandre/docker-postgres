@@ -101,11 +101,11 @@ Sometimes you want to halt and delete Docker containers or images.
 ### Destroy all containers matching query
 
 ```
-$ docker ps -a | grep docker-postgres | awk '{ print $1 }' | xargs docker rm -f
+$ docker ps -a | grep -v IMAGE | grep docker-postgres | awk '{ print $1 }' | xargs docker rm -f
 ```
 
 ### Destroy all images matching query
 
 ```
-$ docker images | grep docker-postgres | awk '{ print $3 }' | xargs docker rmi -f
+$ docker images | grep -v IMAGE | grep docker-postgres | awk '{ print $3 }' | xargs docker rmi -f
 ```
