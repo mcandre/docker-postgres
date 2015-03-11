@@ -7,10 +7,9 @@ https://registry.hub.docker.com/u/mcandre/docker-postgres/
 # EXAMPLE
 
 ```
-$ docker pull mcandre/docker-postgres
-
-$ CONTAINER=$(docker run -d -p 5432:5432 mcandre/docker-postgres)
-$ docker exec $CONTAINER psql -h $(boot2docker ip) -U postgres -c "SELECT 'Hello World!';"
+$ make
+docker build -t mcandre/docker-postgres .
+docker exec ec78736c17866d05a185c830ae0e3f44656a0a7674a0c9f2e4f9d040235f9dd8 psql -h $(boot2docker ip) -U postgres -c "SELECT 'Hello World!';"
    ?column?   
 --------------
  Hello World!
@@ -21,10 +20,14 @@ $ docker exec $CONTAINER psql -h $(boot2docker ip) -U postgres -c "SELECT 'Hello
 
 * [Docker](https://www.docker.com/)
 
+## Optional
+
+* [make](http://www.gnu.org/software/make/)
+
 ## Debian/Ubuntu
 
 ```
-$ sudo apt-get install docker.io
+$ sudo apt-get install docker.io build-essential
 ```
 
 ## RedHat/Fedora/CentOS
@@ -41,6 +44,7 @@ $ sudo yum install docker-io
 
 ### Mac OS X
 
+* [Xcode](http://itunes.apple.com/us/app/xcode/id497799835?ls=1&mt=12)
 * [Homebrew](http://brew.sh/)
 * [brew-cask](http://caskroom.io/)
 
@@ -54,58 +58,5 @@ $ brew install boot2docker
 * [Chocolatey](https://chocolatey.org/)
 
 ```
-> chocolatey install docker
-```
-
-# DEVELOPMENT
-
-## Build
-
-```
-$ git clone https://github.com/mcandre/docker-postgres.git
-$ cd docker-postgres/
-$ docker build -t mcandre/docker-postgres .
-
-$ CONTAINER=$(docker run -d -p 5432:5432 mcandre/docker-postgres)
-```
-
-### Linux
-
-```
-$ docker exec $CONTAINER psql -U postgres -c "SELECT 'Hello World!';"
-```
-
-### non-Linux
-
-```
-$ docker exec $CONTAINER psql -h $(boot2docker ip) -U postgres -c "SELECT 'Hello World!';"
-```
-
-```
-   ?column?   
---------------
- Hello World!
-(1 row)
-```
-
-## Publish
-
-```
-$ docker push mcandre/docker-postgres
-```
-
-## Cleanup
-
-Sometimes you want to halt and delete Docker containers or images.
-
-### Destroy all containers matching query
-
-```
-$ docker ps -a | grep -v IMAGE | grep docker-postgres | awk '{ print $1 }' | xargs docker rm -f
-```
-
-### Destroy all images matching query
-
-```
-$ docker images | grep -v IMAGE | grep docker-postgres | awk '{ print $3 }' | xargs docker rmi -f
+> chocolatey install docker make
 ```
