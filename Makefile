@@ -16,7 +16,7 @@ build: Dockerfile
 	docker build -t $(IMAGE) .
 
 run: clean-containers build
-	$(eval CONTAINER=$(shell docker run -d -p 5432:5432 mcandre/docker-postgres))
+	$(eval CONTAINER=$(shell docker run -d -p 5432:5432 $(IMAGE)))
 	docker exec $(CONTAINER) psql -h $(LOCALHOST) -U postgres -c "SELECT 'Hello World!';"
 
 clean-containers:
