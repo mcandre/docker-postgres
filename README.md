@@ -10,7 +10,7 @@ https://registry.hub.docker.com/u/mcandre/docker-postgres/
 $ make
 docker build -t mcandre/docker-postgres .
 docker exec ec78736c17866d05a185c830ae0e3f44656a0a7674a0c9f2e4f9d040235f9dd8 psql -h $(boot2docker ip) -U postgres -c "SELECT 'Hello World!';"
-   ?column?   
+   ?column?
 --------------
  Hello World!
 (1 row)
