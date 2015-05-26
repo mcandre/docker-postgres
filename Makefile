@@ -1,4 +1,4 @@
-IMAGE=mcandre/docker-postgres:8
+IMAGE=mcandre/docker-postgres:7
 
 export LOCALHOST=$$(boot2docker ip)
 
