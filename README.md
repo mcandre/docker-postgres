@@ -9,7 +9,7 @@ https://registry.hub.docker.com/u/mcandre/docker-postgres/
 ```
 $ make
 docker build -t mcandre/docker-postgres:latest .
-docker exec ec78736c17866d05a185c830ae0e3f44656a0a7674a0c9f2e4f9d040235f9dd8 psql -h $(boot2docker ip) -U postgres -c "SELECT 'Hello World!';"
+docker exec ec78736c17866d05a185c830ae0e3f44656a0a7674a0c9f2e4f9d040235f9dd8 psql -h $(docker-machine ip default) -U postgres -c "SELECT 'Hello World!';"
    ?column?
 --------------
  Hello World!
@@ -39,8 +39,7 @@ $ sudo yum install docker-io
 ## non-Linux
 
 * [VirtualBox](https://www.virtualbox.org/)
-* [Vagrant](https://www.vagrantup.com/)
-* [boot2docker](http://boot2docker.io/)
+* [Docker Toolbox](https://www.docker.com/toolbox)
 
 ### Mac OS X
 
@@ -49,8 +48,7 @@ $ sudo yum install docker-io
 * [brew-cask](http://caskroom.io/)
 
 ```
-$ brew cask install virtualbox vagrant
-$ brew install boot2docker
+$ brew cask install dockertoolbox
 ```
 
 ### Windows
@@ -58,5 +56,7 @@ $ brew install boot2docker
 * [Chocolatey](https://chocolatey.org/)
 
 ```
-> chocolatey install docker make
+> chocolatey install virtualbox make
 ```
+
+* [DockerToolbox-1.8.2c.exe](https://github.com/docker/toolbox/releases/download/v1.8.2c/DockerToolbox-1.8.2c.exe)
